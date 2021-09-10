@@ -1,3 +1,10 @@
+INSERT INTO YIS.APPARTMENT(`address_id`, `raion_id`, `house_id`, `tar_house`, `kod`, `address`, `nanim`, `fio`, `order`, `data`, `inn`, `passport`, `vidan`, `viddata`, `area_full`, `area_life`, `area_dop`, `area_balk`, `area_otopl`, `room`, `privat`, `tenant`,`podnan`, `absent`, `lgotchik`, `subsidia`, `vxvoda`, `vgvoda`, `teplomer`, `dvodomer_id`, `lift`, `antena`, `dop`, `tarif_kv`, `tarif_ot`, `tarif_aot`, `tarif_gv`, `tarif_xv`, `tarif_st`, `tarif_tbo` `phone`, `email`, `osmd`, `osmd_id`, `what_change`, `operator`, `data_change`, `data_in`) 
+		    SELECT `address_id`, `raion_id`, `house_id`, `tar_house`, `kod`, `address`, `nanim`, `fio`, `order`, `data`, `inn`, `passport`, `vidan`, `viddata`, `area_full`, `area_life`, `area_dop`, 
+`area_balk`, `area_otopl`, `room`, `privat`, `tenant`, `podnan`, `absent`, `lgotchik`, `subsidia`, `vxvoda`, `vgvoda`, `teplomer`,`dvodomer_id`, `lift`, `antena`, `dop`,  `tarif_kv`, `tarif_ot`, `tarif_aot`, `tarif_gv`, `tarif_xv`, `tarif_st`, `tarif_tbo`, `phone`, `email`, `osmd`, `osmd_id`, `what_change`, `operator`, `data_change`, `data_in` 
+FROM OSBB.APPARTMENT  WHERE `address_id` in(17119,17120,17121,17122,17123,17124,17125,17126,17127,17128,17129,17130,17131,17132,17133,17134,17135,17136)
+
+
+
 DELETE FROM YIS.KVARTPLATA  WHERE data < "20140101";
 DELETE FROM YIS.OTOPLENIE  WHERE data < "20140101";
 DELETE FROM YIS.PODOGREV  WHERE data < "20140101";
@@ -45,3 +52,5 @@ UPDATE `PTN` SET `address` = "Іванова 18/69"  WHERE `address_id`= 15060;
 UPDATE `TBO` SET `address` = "Іванова 18/69"  WHERE `address_id`= 15060;
 UPDATE `VODOMER` SET `address` = "Іванова 18/69"  WHERE `address_id`= 15060;
 UPDATE `WATER` SET `address` = "Іванова 18/69"  WHERE `address_id`= 15060;
+
+UPDATE OSBB.APPARTMENT as t2  SET t2.`house_id` = 186 WHERE  t2.`address_id` =  16654;

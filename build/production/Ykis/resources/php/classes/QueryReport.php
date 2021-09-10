@@ -524,6 +524,9 @@ case "SvodOtNasel":
 			case "ItogMonthVik":		
 			      $this->sql='CALL YISGRAND.ItogMonthVik("'.$this->date_from.'","'.$this->date_to.'", @head,@content,@foot,@success,@msg)';
 			break;
+			case "VikMsg":		
+			      $this->sql='CALL YISGRAND.VikMsg("'.$this->date_from.'","'.$this->date_to.'",@content,@success,@msg)';
+			break;
 			case "ItogMonthMgkc":		
 			      $this->sql='CALL YISGRAND.ItogMonthMgkc("'.$this->date_from.'","'.$this->date_to.'", @head,@content,@foot,@success,@msg)';
 			break;
@@ -809,14 +812,12 @@ case "SvodOtNasel":
 								 switch ($this->rbDolg) {
 									case "1": 
 											$this->sql='CALL YISGRAND.DolgSummaVik('
-											.'"'.$this->raion_yes.'", '
 											.'"'.$this->raion_id.'", '
-											.'"'.$this->house_yes.'", '
 											.'"'.$this->house_id.'", '
 											.'"'.$this->start.'",'
 											.'"'.$this->finish.'",'
 											.'"'.$this->date_from.'",'
-											.'"'.$this->date_to.'", @head,@content,@foot,@success,@msg)';
+											.'"'.$this->date_to.'",@content,@success,@msg)';
 									break;
 									case "0": 
 												$this->sql='CALL YISGRAND.DolgMonthVik('
@@ -963,6 +964,10 @@ case "SvodOtNasel":
 						break;
 						}	
 			break;
+			case "DolgMsgVik":
+					$this->sql='CALL YISGRAND.DolgMsgVik('.$this->address_id.',@content,@success,@msg)';
+						
+			break;
 			case "MgkcWarning":			
 			    	switch ($this->rbDolg) {
 						case "1": 
@@ -1074,9 +1079,7 @@ case "SvodOtNasel":
 
 
 			case "DogovorYtke":			
-			      $this->sql='CALL YISGRAND.YtkeDogovor('
-			      .'"'.$this->dog_id.'", '
-			      .' @head,@content,@foot)';
+			      $this->sql='CALL YISGRAND.DogovoraHouse_ytke("'.$this->house_id.'",  @content,@success,@msg)';
 			//  print($this->sql);
 			break;
 

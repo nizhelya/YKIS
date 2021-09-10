@@ -1749,6 +1749,7 @@ public function Org(stdClass $params)
 			  .$this->teplomer.'","'
 			  .$this->nrx_gvs_d.'","'
 			  .$this->nrx_xv_d.'","'
+			  .$this->gkal_h_ot.'","'
 			  .$this->pstoki.'","'
 			  .$this->qty_hour.'","'
 			  .$this->rteplo.'","'

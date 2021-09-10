@@ -5,6 +5,8 @@ class QueryAddress
 	private $_db;
 	protected $_result;
 	protected $address_id;
+	protected $raion_id;
+
 	protected $private;
 	protected $appartment;
 	protected $_total;
@@ -64,6 +66,12 @@ public function connect($login,$password)
 		  $_id = 0;
 		}
 
+		if(isset($params->raion_id) && ($params->raion_id)) {
+		 $this->raion_id = $params->raion_id;
+		} else {
+		  $this->raion_id = null;
+		}
+		
 		if(isset($params->address_id) && ($params->address_id)) {
 		 $this->address_id = $params->address_id;
 		} else {
@@ -140,13 +148,13 @@ public function connect($login,$password)
 		      case "HousesFromStreet":
 			  $_sql_total=null; 
 			  if ($_id == 0) {
-			    $_sql='SELECT raion_id,street_id,house_id,house,raion,house,house as item FROM YIS.HOUSE ORDER BY house';
+			    $_sql='SELECT raion_id,street_id,house_id,house,raion,house,house as item FROM YIS.HOUSE WHERE raion_id='.$this->raion_id.' ORDER BY house';
 			  }  else if($this->privat) {
 			    $_sql='SELECT raion_id,street_id,house_id,address_id,house,raion,house,street,address,appartment,address as item,cast(appartment as unsigned) as app 
-			    FROM YIS.ADDRESS WHERE street_id= '.$_id.' ORDER BY app';
+			    FROM YIS.ADDRESS WHERE raion_id='.$this->raion_id.' and street_id= '.$_id.' ORDER BY app';
 			  
 			   } else {
-			    $_sql='SELECT raion_id,street_id,house_id,house,raion,house,house as item FROM YIS.HOUSE WHERE street_id= '.$_id.' ORDER BY house';
+			    $_sql='SELECT raion_id,street_id,house_id,house,raion,house,house as item FROM YIS.HOUSE WHERE raion_id='.$this->raion_id.' and street_id= '.$_id.' ORDER BY house';
 			  }   
 		    break;
 		   
@@ -183,13 +191,9 @@ public function connect($login,$password)
 			  $_sql= 'SELECT *  FROM YIS.APP_HISTORY WHERE `address_id`='.$_id.' order by `data_in` DESC'; 
 //print($_sql);
 		    break;
-		     case "SearchCitizen":
+		    case "SearchCitizen":
 		     $_sql_total=null; 
-			  $_sql= 'SELECT t1.`raion_id`, t2.`house`,t1.`address_id`,t1.`address`,t1.`fio` as owner ,t1.`nanim`  FROM YIS.APPARTMENT as t1,YIS.HOUSE as t2 WHERE t2.house_id = t1.house_id and  t1.`raion_id` in(1,2,3,4)'; 
-//print($_sql);
-		    break;
-		      $_sql_total=null; 
-			  $_sql= 'SELECT t1.`raion_id`, t2.`house`,t1.`address_id`,t1.`address`,t1.`fio` as owner ,t1.`nanim`  FROM YIS.APPARTMENT as t1,YIS.HOUSE as t2 WHERE t2.house_id = t1.house_id and  t1.`raion_id` in(1,2,3,4,5)'; 
+			  $_sql= 'SELECT t1.`raion_id`, t2.`house`,t1.`address_id`,t1.`address`,t1.`fio` as owner ,t1.`nanim`  FROM YIS.APPARTMENT as t1,YIS.HOUSE as t2 WHERE t2.house_id = t1.house_id and  t1.`raion_id` in(1,2,3,4,5,6,7)'; 
 //print($_sql);
 		    break;
 		    case "Appartment":
@@ -1322,6 +1326,10 @@ public function connect($login,$password)
 			  break;
 		 case "addOplataAllOrg":			
 			      $this->sql='CALL YISGRAND.addOplataAllOrg('.$this->rec_id.', @success,@msg)';
+			 // print($this->sql);
+			break;
+		case "SendMsgVik":			
+			      $this->sql='CALL YISGRAND.SendMsgVik('.$this->address_id.',"'.$this->html.'", @success,@msg)';
 			 // print($this->sql);
 			break;
 		 case "addOplataOrg":

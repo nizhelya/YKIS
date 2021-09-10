@@ -57,7 +57,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|snapToGrid": 5,
-                        "height": 213,
+                        "height": 614,
                         "layout": "absolute",
                         "style": "background-color: #DCDCDC;",
                         "title": "Водопосточання",
@@ -1163,6 +1163,461 @@
                                     "group": "(Custom Properties)",
                                     "name": "formBind",
                                     "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|snapToGrid": 5,
+                                "height": 415,
+                                "layout": "absolute",
+                                "layout|x": 5,
+                                "layout|y": 170,
+                                "title": "Повідомлення про заборгованості"
+                            },
+                            "name": "MyFieldSet2",
+                            "designerId": "90ca4939-822e-47cc-bc4a-de615e2530f9",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": null,
+                                        "formBind": true,
+                                        "height": null,
+                                        "icon": "resources/css/images/ico/xsldbg_refresh.png",
+                                        "id": "btnNewMsgVik",
+                                        "layout|x": 270,
+                                        "layout|y": 5,
+                                        "scale": "medium",
+                                        "text": "Створити повідомлення",
+                                        "width": 195
+                                    },
+                                    "name": "MyButton4",
+                                    "configAlternates": {
+                                        "scrollable": "boolean"
+                                    },
+                                    "designerId": "16ce5469-711b-4f00-8be9-999ad8f0c1dc",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "event"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "",
+                                                    "",
+                                                    "var StUser = Ext.data.StoreManager.get(\"StUser\");",
+                                                    "var StReport = Ext.data.StoreManager.get(\"StReport\");",
+                                                    "",
+                                                    "var values =StUser.getAt(0);",
+                                                    "var params = {",
+                                                    "    login:values.get('login'),",
+                                                    "    password:values.get('password'),",
+                                                    "    address_id:values.get('address_id'),",
+                                                    "    what:\"DolgMsgVik\"",
+                                                    "",
+                                                    "};",
+                                                    "",
+                                                    "",
+                                                    "",
+                                                    "var reppan = Ext.getCmp('cntMsgVik');",
+                                                    "",
+                                                    "",
+                                                    "QueryReport.getResults(params,function(results){",
+                                                    "    if (results.success===\"1\"){",
+                                                    "        reppan.update(results.content);",
+                                                    "",
+                                                    "    }else{",
+                                                    "        Ext.MessageBox.show({title: \"Повідомлення про заборгованості\",",
+                                                    "                             msg: results.msg,",
+                                                    "                             buttons: Ext.MessageBox.OK,",
+                                                    "                             icon: Ext.MessageBox.ERROR",
+                                                    "                            });",
+                                                    "",
+                                                    "",
+                                                    "    }",
+                                                    "});"
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "18e79b06-ef37-41b4-a03a-69d42fb3515a"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": null,
+                                        "formBind": true,
+                                        "height": null,
+                                        "icon": "resources/css/images/ico/xsldbg_refresh.png",
+                                        "id": "btnSendMsgVik",
+                                        "layout|x": 600,
+                                        "layout|y": 5,
+                                        "scale": "medium",
+                                        "text": "Надіслати повідомлення",
+                                        "width": 195
+                                    },
+                                    "name": "MyButton2",
+                                    "configAlternates": {
+                                        "scrollable": "boolean"
+                                    },
+                                    "designerId": "df130de8-45d9-4168-a864-7bd6488f4571",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "button",
+                                                    "event"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "//LOGIN & PASSWORD",
+                                                    "var stUser = Ext.data.StoreManager.get(\"StUser\");",
+                                                    "var pvalues =stUser.getAt(0);",
+                                                    "var login = pvalues.get('login');",
+                                                    "var password = pvalues.get('password');",
+                                                    "var address_id = pvalues.get('address_id');",
+                                                    "",
+                                                    "",
+                                                    "var StMsg = Ext.data.StoreManager.get(\"StMsg\");",
+                                                    "var html = Ext.getCmp('cntMsgVik');",
+                                                    "",
+                                                    "",
+                                                    "var params = {",
+                                                    "    login:login,",
+                                                    "    password:password,",
+                                                    "    what:'SendMsgVik',",
+                                                    "    address_id:address_id,",
+                                                    "    html:html.html",
+                                                    "};",
+                                                    "//console.log(msg.html);",
+                                                    "",
+                                                    "",
+                                                    "QueryAddress.updateRecords(params,function(result){",
+                                                    "",
+                                                    "    if (result.success){",
+                                                    "",
+                                                    "        Ext.MessageBox.show({",
+                                                    "            title: 'Повідомлення про заборгованості!',",
+                                                    "            msg: result.msg,",
+                                                    "            buttons: Ext.MessageBox.OK,",
+                                                    "            icon: Ext.MessageBox.INFO,",
+                                                    "            buttonText:{",
+                                                    "                ok: \"Закрити!\"",
+                                                    "            }",
+                                                    "        });",
+                                                    "",
+                                                    "        StMsg.load({",
+                                                    "            params: {",
+                                                    "                address_id: address_id,",
+                                                    "                what:'getMsgVik',",
+                                                    "                login:login,",
+                                                    "                password:password",
+                                                    "            },",
+                                                    "            scope:this",
+                                                    "        });",
+                                                    "",
+                                                    "",
+                                                    "",
+                                                    "    }else{",
+                                                    "        Ext.MessageBox.show({",
+                                                    "            title: 'Повідомлення про заборгованості',",
+                                                    "            msg: 'Повідомлення не відправлено',",
+                                                    "            buttonText:{",
+                                                    "                ok: \"Закрити!\"",
+                                                    "            },",
+                                                    "            icon: Ext.MessageBox.WARNING",
+                                                    "        });",
+                                                    "    }",
+                                                    "});",
+                                                    ""
+                                                ]
+                                            },
+                                            "name": "handler",
+                                            "designerId": "2cd504c5-24e4-4623-9c44-934b4f205df5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 375,
+                                        "id": "grMsgVik",
+                                        "layout|x": 5,
+                                        "layout|y": 5,
+                                        "store": "StMsg",
+                                        "title": "Попередні повідомлення",
+                                        "width": 260
+                                    },
+                                    "name": "MyGridPanel",
+                                    "designerId": "92be4978-d925-499e-9c97-003e2d68b6f0",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.grid.column.Number",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "rec_id",
+                                                "format": "0",
+                                                "hidden": true,
+                                                "text": "rec_id"
+                                            },
+                                            "name": "MyNumberColumn3",
+                                            "designerId": "d63eb44f-55a5-4736-a690-a4e47a31147c"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Number",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "address_id",
+                                                "format": "0",
+                                                "hidden": true,
+                                                "text": "address_id"
+                                            },
+                                            "name": "MyNumberColumn5",
+                                            "designerId": "ba0e4730-bca3-4ea3-8687-42e93ea83d88"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Number",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "org_id",
+                                                "format": "0",
+                                                "hidden": true,
+                                                "text": "org_id"
+                                            },
+                                            "name": "MyNumberColumn6",
+                                            "designerId": "0241a087-ae10-4d0d-9484-c706792e52e2"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Date",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "start",
+                                                "format": "d-m-Y",
+                                                "menuDisabled": true,
+                                                "text": "Дата повідомл",
+                                                "width": 95
+                                            },
+                                            "name": "MyDateColumn9",
+                                            "designerId": "1510e9b4-fa84-4da9-bf4a-3941ae449099"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Date",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "finish",
+                                                "format": "d-m-Y",
+                                                "menuDisabled": true,
+                                                "text": "Дата ознайомл",
+                                                "width": 95
+                                            },
+                                            "name": "MyDateColumn1",
+                                            "designerId": "40a4e2f1-01fc-462f-b63c-c428ea8aae9e"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "ozn",
+                                                "menuDisabled": true,
+                                                "text": "Озн",
+                                                "width": 40
+                                            },
+                                            "name": "MyColumn3",
+                                            "designerId": "861ccf57-a4b5-4ee9-89e2-2155a32004d8",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "value",
+                                                            "metaData",
+                                                            "record",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "store",
+                                                            "view"
+                                                        ],
+                                                        "fn": "renderer",
+                                                        "implHandler": [
+                                                            "switch (value) {",
+                                                            "    case \"да\":",
+                                                            "        metaData='<span><img clas=\"icon\" src=\"resources/css/images/ico/yes.png\"/></span>';",
+                                                            "        break;",
+                                                            "    case \"нет\":",
+                                                            "        metaData='<span><img clas=\"icon\" src=\"resources/css/images/ico/no.png\"/></span>';",
+                                                            "        break;",
+                                                            "}",
+                                                            "return metaData;",
+                                                            ""
+                                                        ]
+                                                    },
+                                                    "name": "renderer",
+                                                    "designerId": "4d756afe-61f4-4bb9-87cc-8bc6980ab355"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.view.Table",
+                                            "reference": {
+                                                "name": "viewConfig",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "height": 303,
+                                                "width": 767
+                                            },
+                                            "name": "MyTable",
+                                            "designerId": "9aec29bf-56e8-4901-84ea-d72e1c6b4c21"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "msg",
+                                                "hidden": true,
+                                                "text": "MyColumn21"
+                                            },
+                                            "name": "MyColumn21",
+                                            "designerId": "35095def-f7ee-403a-90ab-00747eb120b1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.view.View",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 290,
+                                        "id": "cntMsgVik",
+                                        "itemSelector": "div",
+                                        "layout|x": 280,
+                                        "layout|y": 90,
+                                        "preserveScrollOnRefresh": true,
+                                        "scrollable": true,
+                                        "width": 520
+                                    },
+                                    "name": "MyView",
+                                    "configAlternates": {
+                                        "scrollable": "boolean"
+                                    },
+                                    "designerId": "99945565-92b9-4bd9-8f76-789eb712e38d",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "Data View Item {string}"
+                                                ]
+                                            },
+                                            "name": "itemTpl",
+                                            "designerId": "21f1887b-6d52-4c8d-ba79-5199690906fe"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|snapToGrid": 5,
+                                        "height": null,
+                                        "html": "<h2 class=\"msg-confirm\">ПОВІДОМЛЕННЯ-ПРЕТЕНЗІЯ </h2>",
+                                        "layout": "absolute",
+                                        "layout|x": 270,
+                                        "layout|y": 40,
+                                        "padding": 5,
+                                        "style": "background-color: #F1EEEE;",
+                                        "title": null
+                                    },
+                                    "name": "MyFieldSet3",
+                                    "configAlternates": {
+                                        "html": "string",
+                                        "style": "string"
+                                    },
+                                    "designerId": "144be7c3-334f-4827-a9fb-16ee506147b8"
                                 }
                             ]
                         }

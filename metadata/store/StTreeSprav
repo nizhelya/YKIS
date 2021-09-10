@@ -252,6 +252,7 @@
             "children: [",
             "{id: 'ItogMonthVik', leaf: true,text: 'Итоговый за месяц'},",
             "{id: 'VikDolgi', leaf: true, text: 'Должники КП ВиК'},",
+            "{id: 'VikMsg', leaf: true, text: 'Повідомлення'},",
             "{id: 'VikDolgiSubsid', leaf: true, text: 'Должники субсидия'},",
             "{id: 'VikWarning', leaf: true,text: 'Предупреждение'},",
             "{id: 'NachislenoAllVik', leaf: true,text: 'Начислено по городу'},",

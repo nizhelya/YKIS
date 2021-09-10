@@ -105,7 +105,7 @@ class QueryLoad
 					    //print($_sql); 
 		break;
 		case "raion":
-				$this->sql='SELECT * FROM YIS.RAION ORDER BY raion';
+				$this->sql='SELECT * FROM YIS.RAION ORDER BY raion ';
 					    //print($_sql); 
 		break;
 		case "street":
@@ -141,17 +141,15 @@ class QueryLoad
 		break;
 		case "HousesFromStreet":
 				if ($this->what_id == 0) { 
-				    $this->sql='SELECT * FROM YIS.HOUSE ORDER BY house ';
+				    $this->sql='SELECT * FROM YIS.HOUSE raion_id='.$this->raion_id.' ORDER BY house ';
 				} else {
-				    $this->sql='SELECT * FROM YIS.HOUSE WHERE street_id='.$this->what_id.'';
+				    $this->sql='SELECT * FROM YIS.HOUSE WHERE raion_id='.$this->raion_id.' and street_id='.$this->what_id.'';
 				}  
 				  // print($this->sql);
 		break;
 		case "AddressFromHouses":
-				 $this->sql='SELECT `address_id`, `address`,cast(appartment as unsigned) as app '
-						 . 'FROM YIS.ADDRESS '
-						 .' WHERE YIS.ADDRESS.`house_id`= '. $this->what_id.' '
-						 .' ORDER BY app ';
+				 $this->sql='SELECT t1.`address_id`, t1.`address`,cast(t1.`appartment` as unsigned) as app FROM YIS.ADDRESS as t1  '
+						 .' WHERE t1.`house_id`= '. $this->what_id.' and  raion_id='.$this->raion_id.' ORDER BY app ';
 				//print($this->sql);
 			 
 		    break;

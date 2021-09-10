@@ -388,6 +388,7 @@
                                         "implHandler": [
                                             "var  cbHouses = Ext.getCmp('cbHouses');",
                                             "var  cbStreet = Ext.getCmp('cbStreet');",
+                                            "var  cbRaion = Ext.getCmp('cbRaion');",
                                             "",
                                             "var  viewHouses = Ext.getCmp('listHousesView');",
                                             "",
@@ -401,6 +402,7 @@
                                             "",
                                             "var values =stUser.getAt(0);",
                                             "var login = values.get('login');",
+                                            "var raion_id = cbRaion.getValue();",
                                             "",
                                             "var password = values.get('password');",
                                             "if (record) {",
@@ -409,6 +411,7 @@
                                             "    stHouses.load({",
                                             "        params: {",
                                             "            what:'HousesFromStreet',",
+                                            "            raion_id: raion_id,",
                                             "            what_id: record.get('street_id'),",
                                             "            privat: record.get('privat'),",
                                             "            login:login,",
@@ -419,6 +422,7 @@
                                             "    stHouse.load({",
                                             "        params: {",
                                             "            what:'HousesFromStreet',",
+                                            "            raion_id: raion_id,",
                                             "            what_id: record.get('street_id'),",
                                             "            privat: record.get('privat'),",
                                             "            login:login,",
@@ -426,7 +430,7 @@
                                             "        },",
                                             "        scope: this",
                                             "    });",
-                                            "     if (record.get('privat')) {",
+                                            "    if (record.get('privat')) {",
                                             "        cbHouses.setDisabled(true);",
                                             "    }",
                                             "",
@@ -628,7 +632,7 @@
                         "layout|flex": 1,
                         "name": "indexTabOrg",
                         "value": [
-                            "4"
+                            "3"
                         ]
                     },
                     "name": "MyNumberField155",
@@ -756,6 +760,7 @@
                                         "fieldLabel": "",
                                         "id": "grOrgSearchField",
                                         "layout|anchor": "100%",
+                                        "minChars": 3,
                                         "store": "StOrgOpl",
                                         "valueField": "org_id"
                                     },

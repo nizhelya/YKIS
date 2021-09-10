@@ -1,0 +1,19 @@
+SELECT * FROM `HOUSE` WHERE `street_id` in(7,32,51)
+SELECT * FROM `HOUSE` WHERE `street_id` in(29,44,67,82)
+SELECT * FROM `HOUSE` WHERE `street_id` =44
+
+Степова
+
+UPDATE `ADDRESS` SET `street_id` = 7  WHERE `house_id` in(171,54,236,274)
+UPDATE `HOUSE` SET `street_id` = 7, `street` = "Центральна",`house` = 'Центральна' WHERE `street_id` in(32,51)
+
+UPDATE `HOUSE` SET `street_id` = 44, `street` = "Степова",`house` = 'Степова' codul= 16 WHERE `street_id` in(29,67,82)
+
+UPDATE `ADDRESS` SET `street_id` = 44  WHERE `house_id` in(168,229,252,269,275)
+
+UPDATE `HOUSE` SET  `street` = "Лиманна",`house` = 'Лиманна'  WHERE `street_id` =30
+
+UPDATE `ADDRESS` SET `street` = "Лиманна" ,`house`= "Лиманна"  , `address`= CONCAT("Лиманна","/",`appartment`) WHERE `street_id` = 30
+
+
+UPDATE `ADDRESS` as t1,`APPARTMENT` as t2 SET t2.`address` = t1.`address` WHERE t2.`address_id` = t1.`address_id` and t1.`street_id` = 30

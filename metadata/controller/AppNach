@@ -161,11 +161,32 @@
                 "designer|targetType": "Ext.tab.Panel",
                 "fn": "onTabNachAppVodaActivate",
                 "implHandler": [
+                    "var stUser = Ext.data.StoreManager.get(\"StUser\");",
+                    "var values =stUser.getAt(0);",
+                    "var login = values.get('login');",
+                    "var password = values.get('password');",
+                    "var address_id = values.get('address_id');",
+                    "",
+                    "",
                     "var tabPnNachApp = Ext.getCmp('tabNachAppVoda');",
                     "var tabFmAppVik = Ext.getCmp('tabFmAppVik');",
                     "var stAppartment = Ext.data.StoreManager.get(\"StAppartment\");",
+                    "var StMsg = Ext.data.StoreManager.get(\"StMsg\");",
+                    "var html = Ext.getCmp('cntMsgVik');",
+                    "",
+                    "",
                     "var records =stAppartment.getAt(0);",
                     "tabPnNachApp.setActiveTab(0);",
+                    "StMsg.load({",
+                    "    params: {",
+                    "        address_id: address_id,",
+                    "        what:'getMsgVik',",
+                    "        login:login,",
+                    "        password:password",
+                    "    },",
+                    "    scope:this",
+                    "});",
+                    "html.update(\"\");",
                     "",
                     "if (records) {",
                     "    tabFmAppVik.getForm().loadRecord(records);",
@@ -1181,6 +1202,37 @@
             },
             "name": "onGrNachVodaSelectionChange",
             "designerId": "61ca29a2-666e-4158-9d35-150bcec5077d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#grMsgVik",
+                "designer|params": [
+                    "model",
+                    "selected",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onGrMsgVikSelectionChange",
+                "implHandler": [
+                    "",
+                    "var form = Ext.getCmp('tabFmAppVik');",
+                    "var html = Ext.getCmp('cntMsgVik');",
+                    "",
+                    "if (selected.length > 0) {",
+                    "    html.update(selected[0].data.msg);",
+                    "",
+                    "}"
+                ],
+                "name": "selectionchange"
+            },
+            "name": "onGrMsgVikSelectionChange",
+            "designerId": "0b9935af-f0b8-4076-b2f0-cadbd6aaf4f7"
         },
         {
             "type": "controlleraction",

@@ -1043,6 +1043,7 @@ $include-ykis-store-stloginlocal: true;
 $include-ykis-store-stmtb: true;
 $include-ykis-store-stmop: true;
 $include-ykis-store-stmoptypes: true;
+$include-ykis-store-stmsg: true;
 $include-ykis-store-stoteplomer: true;
 $include-ykis-store-stobjnrv: true;
 $include-ykis-store-stoplata: true;

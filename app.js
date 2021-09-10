@@ -215,7 +215,8 @@ Ext.application({
         'StTarifOt',
         'StIPAY',
         'StPrixodEdit',
-        'StMTB'
+        'StMTB',
+        'StMsg'
     ],
     views: [
         'flat.TabAppTeplomer',

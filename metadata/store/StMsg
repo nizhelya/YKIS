@@ -1,0 +1,49 @@
+{
+    "type": "directstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StMsg",
+        "groupField": null,
+        "model": "MdDogovor",
+        "storeId": "StMsg"
+    },
+    "name": "StDogovor1",
+    "designerId": "ec6ef27b-9d41-4238-a4f8-a79f2b1001d1",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Direct",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "directFn": "QuerySprav.getResults",
+                "extraParams": [
+                    "{what:'getMsg'}"
+                ]
+            },
+            "name": "MyDirectProxy1",
+            "designerId": "8d9c5688-5e78-4c9d-aed3-29e785602981",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "86d1f559-ff21-49cd-9a61-b0c94a9f35d6"
+                }
+            ]
+        }
+    ]
+}

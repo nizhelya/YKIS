@@ -125,6 +125,11 @@ class QuerySprav
 			   	//print($_sql);  
 
 			break;
+			  case "getMsgVik"://применяется
+			   $this->sql='SELECT * FROM YISGRAND.WARNING as t1 WHERE  t1.address_id='.$this->address_id.' ';
+			   	//print($_sql);  
+
+			break;
 			   case "getDogRestrVik"://применяется
 			   $this->sql='SELECT t1.* FROM YISGRAND.DOGOVOR_VIK as t1 WHERE  t1.address_id='.$this->address_id.' ';
 			   	//print($_sql);  
